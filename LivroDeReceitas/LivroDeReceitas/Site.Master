@@ -9,6 +9,7 @@
     <title>Receitas Divertidas</title>
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="Content/Site.css" rel="stylesheet" />
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -30,7 +31,7 @@
         </div>
     </div>
     <div class="container body-content">
-        <form runat="server">
+        <form class="form-horizontal" runat="server">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
         </form>

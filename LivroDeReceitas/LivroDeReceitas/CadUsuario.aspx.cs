@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace LivroDeReceitas
 {
-    public partial class CadastroDeUsuario : System.Web.UI.Page
+    public partial class CadUsuario : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
