@@ -14,28 +14,35 @@
                 </div>
             </div>
             <div class="form-group">
-                <div class="col-md-8">
+                <div class="col-md-12">
                     <asp:Label ID="lblEmail" runat="server"
                         CssClass="control-label">Email:</asp:Label>
                     <asp:TextBox ID="txtEmail" runat="server"
                         CssClass="form-control"></asp:TextBox>
                 </div>
-                <div class="col-md-4">
-                    <asp:Label ID="lblIdade" runat="server"
-                        CssClass="control-label">Idade:</asp:Label>
-                    <asp:TextBox ID="txtIdade" runat="server"
+            </div>
+            <div class="form-group">
+                <div class="col-md-12">
+                    <asp:Label ID="lblData" runat="server"
+                        CssClass="control-label">Data de Nascimento:</asp:Label>
+                    <asp:TextBox ID="txtData" runat="server"
                         CssClass="form-control"></asp:TextBox>
                 </div>
             </div>
-
             <div class="form-group">
-                <div class="col-md-4">
+                <div class="col-md-12">
+                    <asp:Label ID="lblSenha" runat="server" CssClass="control-label">Senha:</asp:Label>
+                    <asp:TextBox ID="txtSenha" runat="server" CssClass="form-control" />
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-12">
                     <asp:Label ID="lblSexo" runat="server"
                         CssClass="control-label">Sexo:</asp:Label>
                     <br />
                     <asp:RadioButton ID="rdoMasculino" runat="server" GroupName="sexo" />
                     Masculino
-                        <asp:RadioButton ID="rdoFeminino" runat="server" GroupName="sexo" />
+                    <asp:RadioButton ID="rdoFeminino" runat="server" GroupName="sexo" />
                     Feminino
                 </div>
             </div>

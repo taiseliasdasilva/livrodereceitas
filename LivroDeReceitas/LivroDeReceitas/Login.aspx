@@ -2,41 +2,54 @@
 
 <!DOCTYPE html>
 
-<html lang="pt-br">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Receitas Divertidas</title>
-    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <title></title>
+
+
+    <style>
+
+        body
+        {
+            background:#ccc;
+        }
+        .formclass
+        {
+            padding:20px;
+            margin:0px auto;
+            background:#fff;
+            width:200px;
+        }
+
+        h1
+        {
+            text-align:center;
+        }
+
+        input
+        {
+            padding:2px;
+            width:100px;
+
+        }
+    </style>
+
 </head>
 <body>
-    <div class="container body-content">
-        <div class="row">
-            <div class="col-md-4 col-md-offset-4">
-                <form runat="server" class="form-horizontal">
-                    <div class="form-group">
-                        <div class="col-md-12">
-                            <asp:Label runat="server" CssClass="control-label">Login:</asp:Label>
-                            <asp:TextBox ID="txtLogin" runat="server" CssClass="form-control" />
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-md-12">
-                            <asp:Label runat="server" CssClass="control-label">Senha:</asp:Label>
-                            <asp:TextBox ID="txtSenha" runat="server" CssClass="form-control" />
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-md-12 text-center">
-                            <asp:Button ID="btnEntrar" runat="server" CssClass="btn btn-primary" Text="ENTRAR" />
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
+    <form id="form1" runat="server">
+    <div class="formclass">
+
+    <h1>Login</h1>
+    <asp:TextBox ID="txtEmail" CssClass="input" placeholder="Email" runat="server"></asp:TextBox>
+        <br /><br />
+
+         <asp:TextBox ID="txtSenha"  CssClass="input" placeholder="Senha" runat="server" TextMode="Password"></asp:TextBox>
+        <br /><br />
+
+        <asp:Button ID="btnEntrar" CssClass="input" Width="100px" runat="server" Text="Entrar" />
     </div>
-    <script src="Scripts/jquery-1.10.2.min.js"></script>
-    <script src="Scripts/bootstrap.min.js"></script>
+    
+ 
+    </form>
 </body>
 </html>

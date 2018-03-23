@@ -40,15 +40,6 @@ namespace LivroDeReceitas {
         protected global::System.Web.UI.WebControls.Label lblTipo;
         
         /// <summary>
-        /// ddlTipo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlTipo;
-        
-        /// <summary>
         /// lblIngredientes control.
         /// </summary>
         /// <remarks>
