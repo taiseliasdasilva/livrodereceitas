@@ -9,10 +9,7 @@
 
     <style>
 
-        body
-        {
-            background:#ccc;
-        }
+    
         .formclass
         {
             padding:20px;
@@ -26,12 +23,7 @@
             text-align:center;
         }
 
-        input
-        {
-            padding:2px;
-            width:100px;
-
-        }
+      
     </style>
 
 </head>

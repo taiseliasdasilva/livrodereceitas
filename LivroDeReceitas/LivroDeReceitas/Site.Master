@@ -24,9 +24,11 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a runat="server" href="~/">Home</a></li>
+                    <li><a runat="server" href="~/Login.aspx">Login</a></li>
                     <li><a runat="server" href="~/CadUsuario.aspx">Usuário</a></li>
                     <li><a runat="server" href="~/CadReceitas.aspx">Receitas</a></li>
+                    <li><a runat="server" href="~/VisualizarVideos.aspx">Vídeos</a></li>
+                    <li><a runat="server" href="~/InserirComentarios.aspx">Comentários</a></li>
                 </ul>
             </div>
         </div>
