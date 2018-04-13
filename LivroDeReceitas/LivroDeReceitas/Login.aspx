@@ -4,44 +4,27 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>Login</title>
 
-
-    <style>
-
-    
-        .formclass
-        {
-            padding:20px;
-            margin:0px auto;
-            background:#fff;
-            width:200px;
-        }
-
-        h1
-        {
-            text-align:center;
-        }
-
-      
-    </style>
 
 </head>
 <body>
     <form id="form1" runat="server">
-    <div class="formclass">
+        <div class="formclass">
 
-    <h1>Login</h1>
-    <asp:TextBox ID="txtEmail" CssClass="input" placeholder="Email" runat="server"></asp:TextBox>
-        <br /><br />
+            <h1>Login</h1>
+            <asp:TextBox ID="txtEmail" CssClass="input" placeholder="Email" runat="server"></asp:TextBox>
+            <br />
+            <br />
 
-         <asp:TextBox ID="txtSenha"  CssClass="input" placeholder="Senha" runat="server" TextMode="Password"></asp:TextBox>
-        <br /><br />
+            <asp:TextBox ID="txtSenha" CssClass="input" placeholder="Senha" runat="server" TextMode="Password"></asp:TextBox>
+            <br />
+            <br />
 
-        <asp:Button ID="btnEntrar" CssClass="input" Width="100px" runat="server" Text="Entrar" />
-    </div>
-    
- 
+            <asp:Button ID="btnEntrar" CssClass="input" Width="100px" runat="server" Text="Entrar" />
+        </div>
+
+
     </form>
 </body>
 </html>

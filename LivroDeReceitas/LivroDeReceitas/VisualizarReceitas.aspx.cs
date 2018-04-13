@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace LivroDeReceitas
 {
-    public partial class VisualizarVideos : System.Web.UI.Page
+    public partial class VisualizarReceitas : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
