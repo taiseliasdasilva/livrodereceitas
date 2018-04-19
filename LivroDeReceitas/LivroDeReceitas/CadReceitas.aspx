@@ -36,7 +36,7 @@
                 <div class="form-group">
                     <div class="col-md-12">
                         <asp:Label ID="lblModoDePreparo" runat="server"
-                            CssClass="control-label">Modo De Preparo:</asp:Label>
+                            CssClass="control-label">ModoPreparo:</asp:Label>
                         <asp:TextBox ID="txtModo" runat="server" CssClass="form-control" TextMode="MultiLine" Rows="10"></asp:TextBox>
                     </div>
                 </div>

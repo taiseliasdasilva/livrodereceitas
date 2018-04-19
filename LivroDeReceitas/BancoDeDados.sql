@@ -45,8 +45,7 @@ GO
 
 create table visualizar (
 	id int identity(1,1) not null,
-	nome varchar(100) not null,
-	tipo varchar(50) not null,
+	comentarios varchar(50) not null
 	constraint [pk_visualizar] primary key clustered (id)		
 );
 go
@@ -59,7 +58,7 @@ GO
 
 create table login(
 	id int identity(1,1) not null,
-	email varchar(100) not null,
+	usuario varchar(100) not null,
 	senha varchar(50) not null,
 	constraint [pk_login] primary key clustered (id)		
 );

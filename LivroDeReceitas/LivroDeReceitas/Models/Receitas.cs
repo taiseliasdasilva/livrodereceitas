@@ -11,7 +11,7 @@ namespace LivroDeReceitas.Models
         public string Nome { get; set; }
         public string Tipo { get; set; }
         public string Ingredientes { get; set; }
-        public string ModoDePreparo { get; set; }
+        public string ModoPreparo { get; set; }
 
     }
 }

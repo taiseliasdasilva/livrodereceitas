@@ -16,7 +16,7 @@ namespace LivroDeReceitas
         {
             if (IsPostBack)
                 return;
-            
+
         }
 
         protected void btnCadastrar_Click(object sender, EventArgs e)
@@ -27,7 +27,7 @@ namespace LivroDeReceitas
             Response.Redirect("~/VisualizarReceitas.aspx");
         }
 
-       
+
         protected void btnCancelar_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/VisualizarReceitas.aspx");
@@ -48,12 +48,44 @@ namespace LivroDeReceitas
                 return false;
             if (string.IsNullOrWhiteSpace(txtModo.Text))
                 return false;
+            return true;
         }
 
         private void Salvar()
         {
-            throw new NotImplementedException();
-        }
+            var obj = new Receitas();
+            obj.Nome = txtNome.Text;
+            obj.Ingredientes = txtIngredientes.Text;
+            obj.ModoPreparo = txtModo.Text;
 
+
+            using (SqlConnection conn =
+                new SqlConnection(@"Initial Catalog=RECEITAS;
+                        Data Source=localhost;
+                        Integrated Security=SSPI;"))
+            {
+                string strSQL = @"INSERT INTO receitas (nome, tipo, ingredientes, modoPreparo ) 
+                                  VALUES (@nome, @tipo, @ingredientes, @modoPreparo)";
+
+
+                using (SqlCommand cmd = new SqlCommand(strSQL))
+                {
+                    cmd.Connection = conn;
+
+                    cmd.Parameters.Add("@nome", SqlDbType.VarChar).Value = obj.Nome;
+                    cmd.Parameters.Add("@tipo", SqlDbType.VarChar).Value = obj.Tipo;
+                    cmd.Parameters.Add("@ingredientes", SqlDbType.VarChar).Value = obj.Ingredientes;
+                    cmd.Parameters.Add("@modoPreparo", SqlDbType.VarChar).Value = obj.ModoPreparo;
+
+
+                    conn.Open();
+
+                    cmd.ExecuteNonQuery();
+
+                    conn.Close();
+
+                }
+            }
+        }
     }
 }

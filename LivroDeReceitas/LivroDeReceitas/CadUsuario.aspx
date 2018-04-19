@@ -51,9 +51,9 @@
                 <div class="form-group">
                     <div class="col-md-12 text-right">
                         <asp:Button ID="btnCadastrar" runat="server"
-                            Text="Cadastrar" CssClass="btn btn-primary" />
+                            Text="Cadastrar" CssClass="btn btn-primary" OnClick="btnCadastrar_Click" />
                         <asp:Button ID="btnCancelar" runat="server"
-                            Text="Cancelar" CssClass="btn btn-primary" />
+                            Text="Cancelar" CssClass="btn btn-primary" OnClick="btnCancelar_Click" />
                     </div>
                 </div>
             </div>

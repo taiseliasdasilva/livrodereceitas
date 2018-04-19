@@ -91,6 +91,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.ServiceModel.Activities" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
@@ -153,7 +154,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Images\download.jpg" />
     <Content Include="Images\Foto-0077.jpg" />
-    <Content Include="InserirComentarios.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Scripts\BancoDeDados.sql" />
     <Content Include="Scripts\bootstrap.js" />
@@ -249,15 +249,9 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="FormsAuthenticationUtil.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
-    <Compile Include="InserirComentarios.aspx.cs">
-      <DependentUpon>InserirComentarios.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="InserirComentarios.aspx.designer.cs">
-      <DependentUpon>InserirComentarios.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
@@ -267,8 +261,10 @@
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Models\Comentarios.cs" />
+    <Compile Include="Models\Login.cs" />
     <Compile Include="Models\Receitas.cs" />
     <Compile Include="Models\Usuario.cs" />
+    <Compile Include="Models\Visualizar.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
