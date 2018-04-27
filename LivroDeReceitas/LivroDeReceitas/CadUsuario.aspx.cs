@@ -53,7 +53,7 @@ namespace LivroDeReceitas
             txtEmail.Text = string.Empty;
             txtData.Text = string.Empty;
             txtSenha.Text = string.Empty;
-            rdoFeminino.Checked
+            rdoFeminino.Checked = false;
            
         }
 
@@ -83,7 +83,9 @@ namespace LivroDeReceitas
 
             var obj = new Usuario();
             obj.Nome = txtNome.Text;
+            obj.Email = txtEmail.Text;
             obj.DataNascimento = Convert.ToDateTime(txtData.Text);
+            obj.Sexo = rdoFeminino.Checked ? "F" : "M";
             obj.Senha = txtSenha.Text;
            
            

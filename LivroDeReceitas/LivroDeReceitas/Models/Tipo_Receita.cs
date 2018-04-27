@@ -5,12 +5,10 @@ using System.Web;
 
 namespace LivroDeReceitas.Models
 {
-    public class Receitas
+    public class Tipo_Receita
     {
         public int Id { get; set; }
+
         public string Nome { get; set; }
-        public Tipo_Receita Tipo { get; set; }
-        public string Ingredientes { get; set; }
-        public string ModoPreparo { get; set; }
     }
 }

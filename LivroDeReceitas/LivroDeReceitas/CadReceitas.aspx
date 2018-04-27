@@ -6,7 +6,7 @@
             <div class="col-md-12">
                 <h1>Cadastro de Receitas</h1>
                 <hr />
-                <img src="Images/download.jpg" />
+                <img src="Images/22786_original.jpg" />""
                 <div class="form-group">
                     <div class="col-md-12">
                         <asp:Label ID="lblNome" runat="server"
@@ -18,11 +18,9 @@
                 <div class="form-group">
                     <div class="col-md-12">
                         <asp:Label ID="lblTipo" runat="server" CssClass="control-label">Tipo:</asp:Label>
-                        <select class="form-control">
-                            <option>--[SELECIONE]--</option>
-                            <option>Salgada</option>
-                            <option>Doce</option>
-                        </select>
+                        <asp:DropDownList ID="ddlTipo" runat="server"
+                            CssClass="form-control">
+                        </asp:DropDownList>
                     </div>
                 </div>
                 <div class="form-group">

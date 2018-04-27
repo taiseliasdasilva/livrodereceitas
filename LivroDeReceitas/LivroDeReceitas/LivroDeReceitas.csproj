@@ -152,7 +152,8 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="Images\download.jpg" />
+    <Content Include="Images\22786_original.jpg" />
+    <Content Include="Uploads\download.jpg" />
     <Content Include="Images\Foto-0077.jpg" />
     <Content Include="Login.aspx" />
     <Content Include="Scripts\BancoDeDados.sql" />
@@ -242,6 +243,7 @@
     <Compile Include="CadUsuario.aspx.designer.cs">
       <DependentUpon>CadUsuario.aspx</DependentUpon>
     </Compile>
+    <Compile Include="CustomPrincipalSerializeModel.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -249,7 +251,6 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="FormsAuthenticationUtil.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -260,9 +261,9 @@
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Models\Comentarios.cs" />
     <Compile Include="Models\Login.cs" />
     <Compile Include="Models\Receitas.cs" />
+    <Compile Include="Models\Tipo_Receita.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Models\Visualizar.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

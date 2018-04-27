@@ -7,7 +7,7 @@
                 <table>
                     <tr>
                         <td>
-                            <img class="img-responsive img-circle" src="Images/download.jpg" style="width: 150px;" />
+                            <img class="img-responsive img-circle" src="Images/22786_original.jpg" style="width: 150px;" />
                         </td>
                         <td style="padding-left: 20px;">
                             <h1>PANQUECA</h1>

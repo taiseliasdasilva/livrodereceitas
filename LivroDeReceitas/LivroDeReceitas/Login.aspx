@@ -1,52 +1,25 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="LivroDeReceitas.Login" %>
-
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title>LOGIN</title>
-    <style>
-        body
-        {
-            background:#ccc;
-        }
-        .formclass
-        {
-            padding:10px;
-            margin:0px auto;
-            background:#fff;
-            width:200px;
-        }
-        h2
-        {
-            text-align:center;
-        }
-
-        input
-        {
-            padding:2px;
-            
-            width:100%;
-        }
-    </style>
-</head>
-<body>
-    <form id="form1" runat="server">
-    <div class="formclass">
-        <h2>Pagina de Login</h2>
-          <asp:TextBox ID="txtUsuario" CssClass="input" runat="server"
-
-          ></asp:TextBox>
-
-        <asp:TextBox ID="txtSenha" CssClass="input" 
-            runat="server"></asp:TextBox>
-
-        <asp:Button ID="btnEntrar" CssClass="btn btn-primary" Text="Entrar" runat="server" OnClick="btnEntrar_Click" />   
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="LivroDeReceitas.Login" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+    <div class="row">
+        <div class="col-md-12">
+             <asp:Label ID="lblEmail" runat="server"
+                            CssClass="control-label">Email:</asp:Label>
+                        <asp:TextBox ID="txtEmail" runat="server"
+                            CssClass="form-control"></asp:TextBox>
+                    </div>
+                </div>
+    <div class="row">
+        <div class="col-md-12">
+            <asp:Label  ID= "lblSenha" runat="server"
+              CssClass=  control-label>Senha:</asp:Label>
+            <asp:TextBox ID="txtSenha" runat="server" 
+                CssClass="form-control"></asp:TextBox>
+        </div>
     </div>
-    <div>
-    
+    <div class="row">
+        <div class="col-md-12">
+            <asp:Button ID="btnEntrar" runat="server" Text="Entrar" CssClass="btn btn-primary" OnClick="btnEntrar_Click" />
+        </div>
     </div>
-    </form>
-</body>
-</html>
+</asp:Content>
+

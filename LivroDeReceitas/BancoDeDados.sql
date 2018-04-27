@@ -12,16 +12,26 @@ IF EXISTS (SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = '
 GO
 
 create table usuario (
-	id int identity(1,1) not null,
+	id int  primary key identity(1,1) not null,
 	nome varchar(100) not null,
-	email  varchar(50) not null,
+	email  varchar(200) not null,
 	dataNascimento date not null,
 	senha varchar(50) not null,
-	sexo char(1),
-	
-	constraint [pk_usuario] primary key clustered (id)		
+	sexo char(1)
 );
 go
+
+
+--criando tabela de usuario
+IF EXISTS (SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'tipo_receita')
+
+  DROP TABLE tipo_receita
+GO
+
+create table tipo_receita(
+	id int primary key identity (1,1) not null,
+	nome  varchar(100) not null,
+)
 
 -- criando tabela de receitas
 IF EXISTS (SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'receitas')
@@ -29,12 +39,12 @@ IF EXISTS (SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = '
 GO
 
 create table receitas (
-	id int identity(1,1) not null,
+	id int primary key identity(1,1) not null,
 	nome varchar(100) not null,
-	tipo varchar(2) not null,
-	ingredientes varchar(50) not null,
-	modoPreparo varchar(50) not null,
-	constraint [pk_receitas] primary key clustered (id)		
+	id_tipo integer  references tipo_receita(id),
+	ingredientes varchar(max) not null,
+	modoPreparo varchar(max) not null,
+	
 );
 go
 
@@ -44,48 +54,21 @@ IF EXISTS (SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = '
 GO
 
 create table visualizar (
-	id int identity(1,1) not null,
-	comentarios varchar(50) not null
-	constraint [pk_visualizar] primary key clustered (id)		
-);
-go
-
---criando tabela de login
-IF EXISTS (SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'login')
-
-  DROP TABLE login
-GO
-
-create table login(
-	id int identity(1,1) not null,
-	usuario varchar(100) not null,
-	senha varchar(50) not null,
-	constraint [pk_login] primary key clustered (id)		
-);
-go
-
---criando tabela de comentarios
-IF EXISTS (SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'comentarios')
-
-  DROP TABLE comentarios
-GO
-
-create table comentarios(
-	id int identity(1,1) not null,
-	nome varchar(50) not null,
-	ingredientes varchar(50) not null,
-	modoPreparo varchar(50) not null,
-	Comentarios varchar(50) not null
-	constraint [pk_comentarios] primary key clustered (id)		
+	id int primary key identity(1,1) not null,
+	comentarios varchar(50) not null,
+	
 );
 go
 
 
 
-select *from usuario;
+
+insert into tipo_receita values ('Salgada')
+insert into  tipo_receita values ('Doce')
 select*from receitas;
 select*from visualizar;
-select* from login;
-select* from comentarios;
+select* from usuario;
+select * from tipo_receita;
+
 
 
