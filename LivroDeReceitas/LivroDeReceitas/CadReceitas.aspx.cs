@@ -91,6 +91,7 @@ namespace LivroDeReceitas
             txtNome.Text = string.Empty;
             txtIngredientes.Text = string.Empty;
             txtModo.Text = string.Empty;
+            txtUrl.Text = string.Empty;
         }
 
         private bool Validar()
@@ -103,6 +104,8 @@ namespace LivroDeReceitas
                 return false;
             if (string.IsNullOrWhiteSpace(txtModo.Text))
                 return false;
+            if (string.IsNullOrWhiteSpace(txtUrl.Text))
+                return false;
             return true;
         }
 
@@ -113,6 +116,7 @@ namespace LivroDeReceitas
             obj.Tipo = new Tipo_Receita() { Id = Convert.ToInt32(ddlTipo.SelectedValue) };
             obj.Ingredientes = txtIngredientes.Text;
             obj.ModoPreparo = txtModo.Text;
+            obj.Url = txtUrl.Text;
 
 
             using (SqlConnection conn =
@@ -120,8 +124,8 @@ namespace LivroDeReceitas
                         Data Source=localhost;
                         Integrated Security=SSPI;"))
             {
-                string strSQL = @"INSERT INTO receitas (nome, id_tipo, ingredientes, modoPreparo) 
-                                  VALUES (@nome, @id_tipo, @ingredientes, @modoPreparo)";
+                string strSQL = @"INSERT INTO receitas (nome, id_tipo, ingredientes, modoPreparo,url_video) 
+                                  VALUES (@nome, @id_tipo, @ingredientes, @modoPreparo,@url_video)";
 
 
                 using (SqlCommand cmd = new SqlCommand(strSQL))
@@ -132,6 +136,7 @@ namespace LivroDeReceitas
                     cmd.Parameters.Add("@id_tipo", SqlDbType.Int).Value = obj.Tipo.Id;
                     cmd.Parameters.Add("@ingredientes", SqlDbType.VarChar).Value = obj.Ingredientes;
                     cmd.Parameters.Add("@modoPreparo", SqlDbType.VarChar).Value = obj.ModoPreparo;
+                    cmd.Parameters.Add("@url_video", SqlDbType.VarChar).Value = obj.Url;
 
 
                     conn.Open();
@@ -143,5 +148,8 @@ namespace LivroDeReceitas
                 }
             }
         }
+
     }
 }
+   
+  

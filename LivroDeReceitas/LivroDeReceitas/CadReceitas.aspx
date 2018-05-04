@@ -6,12 +6,20 @@
             <div class="col-md-12">
                 <h1>Cadastro de Receitas</h1>
                 <hr />
-                <img src="Images/22786_original.jpg" />""
                 <div class="form-group">
                     <div class="col-md-12">
                         <asp:Label ID="lblNome" runat="server"
                             CssClass="control-label">Nome:</asp:Label>
                         <asp:TextBox ID="txtNome" runat="server"
+                            CssClass="form-control"></asp:TextBox>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <asp:Label ID="Label1" runat="server"
+                            CssClass="control-label">URL do vídeo no YouTube:</asp:Label>
+                        <asp:TextBox ID="txtUrl" runat="server"
                             CssClass="form-control"></asp:TextBox>
                     </div>
                 </div>
@@ -44,13 +52,13 @@
                             Text="Cadastrar" CssClass="btn btn-primary" OnClick="btnCadastrar_Click" />
                         <asp:Button ID="btnCancelar" runat="server"
                             Text="Cancelar" CssClass="btn btn-primary" OnClick="btnCancelar_Click" />
+                        <asp:FileUpload ID="FileUpload1" runat="server" />
                     </div>
                 </div>
             </div>
         </div>
-        <p>
-            <a href="https://www.youtube.com/watch?v=BSsapX8omik">Panqueca</a>
-        </p>
+
+
     </form>
 </asp:Content>
 

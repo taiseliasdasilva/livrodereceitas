@@ -153,8 +153,10 @@
     </Content>
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Images\22786_original.jpg" />
-    <Content Include="Uploads\download.jpg" />
+    <Content Include="Images\27277_original.jpg" />
+    <Content Include="Images\download.jpg" />
     <Content Include="Images\Foto-0077.jpg" />
+    <Content Include="Images\receitas.png" />
     <Content Include="Login.aspx" />
     <Content Include="Scripts\BancoDeDados.sql" />
     <Content Include="Scripts\bootstrap.js" />
@@ -196,7 +198,6 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Site.Master" />
-    <Content Include="Video\mov_bbb.mp4" />
     <Content Include="VisualizarReceitas.aspx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -243,7 +244,6 @@
     <Compile Include="CadUsuario.aspx.designer.cs">
       <DependentUpon>CadUsuario.aspx</DependentUpon>
     </Compile>
-    <Compile Include="CustomPrincipalSerializeModel.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
