@@ -3,9 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace LivroDeReceitas
@@ -16,9 +15,7 @@ namespace LivroDeReceitas
         {
             if (IsPostBack)
                 return;
-
             CarregarTipos();
-
         }
 
 
@@ -40,19 +37,12 @@ namespace LivroDeReceitas
         {
             var lstTipos = new List<Tipo_Receita>();
 
-
-            using (SqlConnection conn =
-                new SqlConnection(@"Initial Catalog=RECEITAS;
-                        Data Source=localhost;
-                        Integrated Security=SSPI;"))
+            using (SqlConnection conn = new SqlConnection(@"Initial Catalog=RECEITAS; Data Source=localhost; Integrated Security=SSPI;"))
             {
-
                 string strSQL = @"SELECT * FROM tipo_receita";
-
 
                 using (SqlCommand cmd = new SqlCommand(strSQL))
                 {
-
                     conn.Open();
                     cmd.Connection = conn;
                     cmd.CommandText = strSQL;
@@ -60,31 +50,26 @@ namespace LivroDeReceitas
                     var dataReader = cmd.ExecuteReader();
                     var dt = new DataTable();
                     dt.Load(dataReader);
-
                     conn.Close();
-
 
                     foreach (DataRow row in dt.Rows)
                     {
-                        var tipo_receita = new Tipo_Receita()
+                        var tipoReceita = new Tipo_Receita()
                         {
                             Id = Convert.ToInt32(row["id"]),
                             Nome = row["nome"].ToString(),
 
                         };
-                        lstTipos.Add(tipo_receita);
+                        lstTipos.Add(tipoReceita);
                     }
                 }
             }
-
 
             ddlTipo.DataTextField = "Nome";
             ddlTipo.DataValueField = "Id";
             ddlTipo.DataSource = lstTipos.OrderBy(o => o.Nome).ToList();
             ddlTipo.DataBind();
         }
-
-
 
         private void LimparCampos()
         {
@@ -117,39 +102,31 @@ namespace LivroDeReceitas
             obj.Ingredientes = txtIngredientes.Text;
             obj.ModoPreparo = txtModo.Text;
             obj.Url = txtUrl.Text;
+            obj.Foto = fupArquivo.FileName;
 
+            var fileName = Path.Combine(Server.MapPath("~/Uploads"), fupArquivo.FileName);
+            fupArquivo.SaveAs(fileName);
 
-            using (SqlConnection conn =
-                new SqlConnection(@"Initial Catalog=RECEITAS;
-                        Data Source=localhost;
-                        Integrated Security=SSPI;"))
+            using (SqlConnection conn = new SqlConnection(@"Initial Catalog=RECEITAS; Data Source=localhost; Integrated Security=SSPI;"))
             {
-                string strSQL = @"INSERT INTO receitas (nome, id_tipo, ingredientes, modoPreparo,url_video) 
-                                  VALUES (@nome, @id_tipo, @ingredientes, @modoPreparo,@url_video)";
-
+                string strSQL = @"INSERT INTO receitas (nome, id_tipo, ingredientes, modo_preparo, url_video, foto) 
+                                  VALUES (@nome, @id_tipo, @ingredientes, @modo_preparo, @url_video, @foto)";
 
                 using (SqlCommand cmd = new SqlCommand(strSQL))
                 {
                     cmd.Connection = conn;
-
                     cmd.Parameters.Add("@nome", SqlDbType.VarChar).Value = obj.Nome;
                     cmd.Parameters.Add("@id_tipo", SqlDbType.Int).Value = obj.Tipo.Id;
                     cmd.Parameters.Add("@ingredientes", SqlDbType.VarChar).Value = obj.Ingredientes;
-                    cmd.Parameters.Add("@modoPreparo", SqlDbType.VarChar).Value = obj.ModoPreparo;
+                    cmd.Parameters.Add("@modo_preparo", SqlDbType.VarChar).Value = obj.ModoPreparo;
                     cmd.Parameters.Add("@url_video", SqlDbType.VarChar).Value = obj.Url;
-
+                    cmd.Parameters.Add("@foto", SqlDbType.VarChar).Value = obj.Foto;
 
                     conn.Open();
-
                     cmd.ExecuteNonQuery();
-
                     conn.Close();
-
                 }
             }
         }
-
     }
 }
-   
-  

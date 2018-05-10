@@ -43,8 +43,9 @@ create table receitas (
 	nome varchar(100) not null,
 	id_tipo integer  references tipo_receita(id),
 	ingredientes varchar(max) not null,
-	modoPreparo varchar(max) not null,
-	
+	modo_preparo varchar(max) not null,
+	url_video varchar (1000) ,
+	foto varchar(1000)
 );
 go
 

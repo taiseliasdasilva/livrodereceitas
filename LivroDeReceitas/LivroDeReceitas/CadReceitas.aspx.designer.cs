@@ -31,13 +31,13 @@ namespace LivroDeReceitas {
         protected global::System.Web.UI.WebControls.TextBox txtNome;
         
         /// <summary>
-        /// Label1 control.
+        /// lblUrlVideo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.Label lblUrlVideo;
         
         /// <summary>
         /// txtUrl control.
@@ -103,6 +103,15 @@ namespace LivroDeReceitas {
         protected global::System.Web.UI.WebControls.TextBox txtModo;
         
         /// <summary>
+        /// fupArquivo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload fupArquivo;
+        
+        /// <summary>
         /// btnCadastrar control.
         /// </summary>
         /// <remarks>
@@ -119,14 +128,5 @@ namespace LivroDeReceitas {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnCancelar;
-        
-        /// <summary>
-        /// FileUpload1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload FileUpload1;
     }
 }

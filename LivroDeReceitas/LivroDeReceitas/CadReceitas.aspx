@@ -14,10 +14,9 @@
                             CssClass="form-control"></asp:TextBox>
                     </div>
                 </div>
-
                 <div class="form-group">
                     <div class="col-md-12">
-                        <asp:Label ID="Label1" runat="server"
+                        <asp:Label ID="lblUrlVideo" runat="server"
                             CssClass="control-label">URL do vídeo no YouTube:</asp:Label>
                         <asp:TextBox ID="txtUrl" runat="server"
                             CssClass="form-control"></asp:TextBox>
@@ -42,8 +41,13 @@
                 <div class="form-group">
                     <div class="col-md-12">
                         <asp:Label ID="lblModoDePreparo" runat="server"
-                            CssClass="control-label">ModoPreparo:</asp:Label>
+                            CssClass="control-label">Modo de preparo:</asp:Label>
                         <asp:TextBox ID="txtModo" runat="server" CssClass="form-control" TextMode="MultiLine" Rows="10"></asp:TextBox>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-lg-12">
+                        <asp:FileUpload ID="fupArquivo" runat="server" />
                     </div>
                 </div>
                 <div class="form-group">
@@ -52,14 +56,9 @@
                             Text="Cadastrar" CssClass="btn btn-primary" OnClick="btnCadastrar_Click" />
                         <asp:Button ID="btnCancelar" runat="server"
                             Text="Cancelar" CssClass="btn btn-primary" OnClick="btnCancelar_Click" />
-                        <asp:FileUpload ID="FileUpload1" runat="server" />
                     </div>
                 </div>
             </div>
         </div>
-
-
     </form>
 </asp:Content>
-
-

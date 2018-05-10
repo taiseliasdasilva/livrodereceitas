@@ -1,8 +1,6 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="LivroDeReceitas.SiteMaster" %>
 
 <!DOCTYPE html>
-
-<!DOCTYPE html>
 <html lang="pt-br">
 <head runat="server">
     <meta charset="utf-8" />
@@ -22,7 +20,7 @@
     <![endif]-->
 </head>
 <body>
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-dark">
         <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -32,33 +30,23 @@
                     <span class="icon-bar"></span>
                     <img src="Images/receitas.png" />
                 </button>
-                   
-                 <img src="Images/receitas.png" />
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                 
-                    <li class="active">
-                        <a href="#">Cadastro Receitas <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li>
-                        <a href="#">Cadastro Usuarios</a>
-                    </li>
-                    <li>
-                        <a href="#">Visualizar</a>
-                    </li>
-                    <li>
-                        <a href="#">Login</a>
-                    </li>
-                    <li class="button">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="CadReceitas.aspx">Receitas</a></li>
-                            <li><a href="CadUsuarios.aspx">Usuarios</a></li>
-                            <li><a href="Login.aspx">Login</a></li>
-                            <li><a href="VisualizarReceitas.aspx">Visualizar</a></li>
-                        </ul>
-                    </li>
-                </ul>
+                <%--<img src="Images/receitas.png" />--%>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <a href="CadReceitas.aspx">Cadastro Receitas <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li>
+                            <a href="CadUsuario.aspx">Cadastro Usuarios</a>
+                        </li>
+                        <li>
+                            <a href="VisualizarReceitas.aspx">Visualizar</a>
+                        </li>
+                        <li>
+                            <a href="Login.aspx">Login</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </nav>
