@@ -34,17 +34,12 @@ namespace LivroDeReceitas
             }
         }
 
-
-
-
-
        
         protected void btnCancelar_Click(object sender, EventArgs e)
         {
 
             Response.Redirect("~/Login.aspx");
         }
-
 
 
         private void LimparCampos()
@@ -56,7 +51,6 @@ namespace LivroDeReceitas
             rdoFeminino.Checked = false;
            
         }
-
 
         private bool Validar()
         {

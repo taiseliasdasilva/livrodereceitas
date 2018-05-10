@@ -12,6 +12,7 @@ namespace LivroDeReceitas
 {
     public partial class Login : System.Web.UI.Page
     {
+        public string Senha { get; private set; }
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -19,5 +20,12 @@ namespace LivroDeReceitas
                 return;
         }
 
+        protected void btnEntrar_Click(object sender, EventArgs e)
+        {
+        }
     }
 }
+
+    
+
+        

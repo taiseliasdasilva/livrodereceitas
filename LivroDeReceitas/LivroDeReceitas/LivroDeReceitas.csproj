@@ -157,6 +157,7 @@
     <Content Include="Images\download.jpg" />
     <Content Include="Images\Foto-0077.jpg" />
     <Content Include="Images\receitas.png" />
+    <Content Include="Images\thumb-up.png" />
     <Content Include="Login.aspx" />
     <Content Include="Scripts\BancoDeDados.sql" />
     <Content Include="Scripts\bootstrap.js" />
@@ -261,6 +262,7 @@
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Models\Login.cs" />
     <Compile Include="Models\Receitas.cs" />
     <Compile Include="Models\Tipo_Receita.cs" />
     <Compile Include="Models\Usuario.cs" />

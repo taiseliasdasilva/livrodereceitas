@@ -50,12 +50,7 @@
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/BSsapX8omik" "0" "autoplay; encrypted-media" ></iframe>
             </div>
         </div>
-
-
-      
-    
-
-        
+          
             <div class="form-group">
                     <div class="col-md-12">
                       
@@ -70,7 +65,9 @@
                             Text="Salvar" CssClass="btn btn-primary" OnClick="btnSalvar_Click"/>
                     </div>
                 </div>
-            
+        <a href="default.asp">
+     <img src="Images/thumb-up.png" alt="Like" style="width:42px;height:42px;border:0;">
+    </a>
                        
     </form>
 </asp:Content>
