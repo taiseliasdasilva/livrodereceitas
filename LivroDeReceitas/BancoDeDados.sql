@@ -57,7 +57,6 @@ GO
 create table visualizar (
 	id int primary key identity(1,1) not null,
 	comentarios varchar(50) not null,
-	
 );
 go
 
@@ -66,6 +65,7 @@ go
 
 insert into tipo_receita values ('Salgada')
 insert into  tipo_receita values ('Doce')
+
 select*from receitas;
 select*from visualizar;
 select* from usuario;

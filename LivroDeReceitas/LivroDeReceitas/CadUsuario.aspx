@@ -25,13 +25,14 @@
                     <div class="col-md-12">
                         <asp:Label ID="lblData" runat="server"
                             CssClass="control-label">Data de Nascimento:</asp:Label>
-                        <asp:TextBox ID="txtData"  type = "date" runat="server"
+                        <asp:TextBox ID="txtData"  type="date" runat="server"
                             CssClass="form-control"></asp:TextBox>
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="col-md-12">
-                        <asp:Label ID="lblSenha" runat="server" CssClass="control-label">Senha:</asp:Label>
+                        <asp:Label ID="lblSenha" runat="server"
+                             CssClass="control-label">Senha:</asp:Label>
                         <asp:TextBox ID="txtSenha"  type="password" runat="server" CssClass="form-control" />
                     </div>
                 </div>

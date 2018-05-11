@@ -86,6 +86,10 @@ namespace LivroDeReceitas
             }
         }
 
+        protected void btnCurtida_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 
