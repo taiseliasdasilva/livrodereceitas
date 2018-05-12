@@ -16,27 +16,26 @@ namespace LivroDeReceitas
 
             var lst = new List<Receitas>();
 
-            //Criando uma conexão com o banco de dados
+        
             using (SqlConnection conn = new SqlConnection(@"Initial Catalog=RECEITAS; Data Source=localhost; Integrated Security=SSPI;"))
             {
-                //Criando instrução sql para selecionar todos os registros na tabela de estados
+                
                 string strSQL = @"SELECT * FROM receitas";
 
-                //Criando um comando sql que será executado na base de dados
                 using (SqlCommand cmd = new SqlCommand(strSQL))
                 {
-                    //Abrindo conexão com o banco de dados
+                   
                     conn.Open();
                     cmd.Connection = conn;
                     cmd.CommandText = strSQL;
-                    //Executando instrução sql
+      
                     var dataReader = cmd.ExecuteReader();
                     var dt = new DataTable();
                     dt.Load(dataReader);
-                    //Fechando conexão com o banco de dados
+                    
                     conn.Close();
 
-                    //Percorrendo todos os registros encontrados na base de dados e adicionando em uma lista
+                    
                     foreach (DataRow row in dt.Rows)
                     {
                         var receita = new Receitas()
