@@ -1,7 +1,3 @@
----- criando base de dados
-CREATE DATABASE RECEITAS
-GO
-
 -- usando base de dados criada
 USE RECEITAS
 GO
@@ -43,8 +39,9 @@ create table receitas (
 	nome varchar(100) not null,
 	id_tipo integer  references tipo_receita(id),
 	ingredientes varchar(max) not null,
-	modoPreparo varchar(max) not null,
-	
+	modo_preparo varchar(max) not null,
+	url_video varchar (1000) ,
+	foto varchar(1000)
 );
 go
 
@@ -56,7 +53,6 @@ GO
 create table visualizar (
 	id int primary key identity(1,1) not null,
 	comentarios varchar(50) not null,
-	
 );
 go
 
@@ -65,9 +61,8 @@ go
 
 insert into tipo_receita values ('Salgada')
 insert into  tipo_receita values ('Doce')
+
 select*from receitas;
 select*from visualizar;
 select* from usuario;
 select * from tipo_receita;
-
-

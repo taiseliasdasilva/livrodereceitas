@@ -19,7 +19,7 @@ namespace LivroDeReceitas
         }
 
 
-        protected void btnEntrar_Click(object sender, EventArgs e)
+        protected void btnEntrar_Click1(object sender, EventArgs e)
         {
             if (Validar())
             {
@@ -94,5 +94,13 @@ namespace LivroDeReceitas
                 }
             }
         }
+
+        protected void btnCadastrar_Click1(object sender, EventArgs e)
+        {
+
+            Response.Redirect("~/CadUsuario.aspx");
+        }
+
+     
+        }
     }
-}

@@ -20,13 +20,15 @@
                         <asp:TextBox ID="txtSenha" type="password" runat="server" CssClass="form-control"></asp:TextBox>
                     </div>
                 </div>
-                <div class="form-group">
+                 <div class="form-group">
                     <div class="col-md-4 text-center">
                         <asp:Button ID="btnEntrar" runat="server"
-                            Text="Entrar" CssClass="btn btn-primary" OnClick="btnEntrar_Click" />
+                            Text="Cadastrar" CssClass="btn btn-primary" OnClick="btnEntrar_Click1" />
+                        <asp:Button ID="btnCadastrar" runat="server"
+                            Text="Cadastrar" CssClass="btn btn-primary" OnClick="btnCadastrar_Click1" />
+
                     </div>
                 </div>
-            </div>
         </div>
     </form>
 
