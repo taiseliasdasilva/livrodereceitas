@@ -30,7 +30,12 @@ GO
 create table tipo_receita(
 	id int primary key identity (1,1) not null,
 	nome  varchar(100) not null,
-)
+);
+go
+
+insert into tipo_receita values ('Salgada');
+insert into tipo_receita values ('Doce');
+go
 
 -- criando tabela de receitas
 IF EXISTS (SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'receitas')
@@ -40,7 +45,7 @@ GO
 create table receitas (
 	id int primary key identity(1,1) not null,
 	nome varchar(100) not null,
-	id_tipo integer  references tipo_receita(id),
+	id_tipo integer references tipo_receita(id),
 	ingredientes varchar(max) not null,
 	modo_preparo varchar(max) not null,
 	url_video varchar (1000) ,
@@ -48,27 +53,16 @@ create table receitas (
 );
 go
 
--- criando tabela de visualizar
-IF EXISTS (SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'visualizar')
-   DROP TABLE visualizar
+-- criando tabela de comentários
+IF EXISTS (SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'comentarios')
+   DROP TABLE comentarios
 GO
 
-create table visualizar (
+create table comentarios (
 	id int primary key identity(1,1) not null,
-	comentarios varchar(50) not null,
+	id_receita integer not null references receitas(id),
+	id_usuario integer not null references usuario(id),
+	data_hora datetime not null default getdate(),
+	texto varchar(2000) not null,
 );
 go
-
-
-
-
-insert into tipo_receita values ('Salgada')
-insert into  tipo_receita values ('Doce')
-
-select*from receitas;
-select*from visualizar;
-select* from usuario;
-select * from tipo_receita;
-
-
-

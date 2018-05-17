@@ -28,6 +28,7 @@ namespace LivroDeReceitas
                 obj.Email = txtEmail.Text;
                 obj.Senha = txtSenha.Text;
 
+                //acessa o banco de dados e procura por um usuário com aquele e-mail e senha
                 var usuarioLogado = Logar(obj);
 
                 //se não encontrar nenhum usuário com as credenciais informadas, 
@@ -67,7 +68,7 @@ namespace LivroDeReceitas
         {
             using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Db"].ConnectionString))
             {
-                string strSQL = "select * from usuario where email = @email and senha = @senha;";
+                string strSQL = "SELECT * FROM USUARIO WHERE EMAIL = @EMAIL AND SENHA = @SENHA;";
 
                 using (SqlCommand cmd = new SqlCommand(strSQL))
                 {
@@ -76,6 +77,7 @@ namespace LivroDeReceitas
                     cmd.Parameters.Add("@senha", SqlDbType.VarChar).Value = obj.Senha;
                     cmd.CommandText = strSQL;
 
+                    conn.Open();
                     var dataReader = cmd.ExecuteReader();
                     var dt = new DataTable();
                     dt.Load(dataReader);

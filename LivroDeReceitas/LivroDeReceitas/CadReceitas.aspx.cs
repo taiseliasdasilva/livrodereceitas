@@ -98,8 +98,8 @@ namespace LivroDeReceitas
             obj.Nome = txtNome.Text;
             obj.Tipo = new Tipo_Receita() { Id = Convert.ToInt32(ddlTipo.SelectedValue) };
             obj.Ingredientes = txtIngredientes.Text;
-            obj.ModoPreparo = txtModo.Text;
-            obj.Url = txtUrl.Text;
+            obj.ModoDePreparo = txtModo.Text;
+            obj.UrlVideo = txtUrl.Text;
             obj.Foto = fupArquivo.FileName;
 
             if (fupArquivo.HasFile)
@@ -119,8 +119,8 @@ namespace LivroDeReceitas
                     cmd.Parameters.Add("@nome", SqlDbType.VarChar).Value = obj.Nome;
                     cmd.Parameters.Add("@id_tipo", SqlDbType.Int).Value = obj.Tipo.Id;
                     cmd.Parameters.Add("@ingredientes", SqlDbType.VarChar).Value = obj.Ingredientes;
-                    cmd.Parameters.Add("@modo_preparo", SqlDbType.VarChar).Value = obj.ModoPreparo;
-                    cmd.Parameters.Add("@url_video", SqlDbType.VarChar).Value = obj.Url;
+                    cmd.Parameters.Add("@modo_preparo", SqlDbType.VarChar).Value = obj.ModoDePreparo;
+                    cmd.Parameters.Add("@url_video", SqlDbType.VarChar).Value = obj.UrlVideo;
                     cmd.Parameters.Add("@foto", SqlDbType.VarChar).Value = obj.Foto;
 
                     conn.Open();

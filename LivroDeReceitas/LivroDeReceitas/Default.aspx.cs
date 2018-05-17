@@ -42,8 +42,8 @@ namespace LivroDeReceitas
                             Nome = row["nome"].ToString(),
                             Tipo = new Tipo_Receita() { Id = Convert.ToInt32(row["id_tipo"]) },
                             Ingredientes = row["ingredientes"].ToString(),
-                            ModoPreparo = row["modo_preparo"].ToString(),
-                            Url = row["url_video"].ToString(),
+                            ModoDePreparo = row["modo_preparo"].ToString(),
+                            UrlVideo = row["url_video"].ToString(),
                             Foto = row["foto"].ToString()
                         };
                         lst.Add(receita);
