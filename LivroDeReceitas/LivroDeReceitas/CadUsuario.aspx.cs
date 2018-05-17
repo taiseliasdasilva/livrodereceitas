@@ -1,6 +1,7 @@
 ﻿using LivroDeReceitas.Models;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -12,14 +13,11 @@ namespace LivroDeReceitas
 {
     public partial class CadUsuario : System.Web.UI.Page
     {
-
         protected void Page_Load(object sender, EventArgs e)
         {
             if (IsPostBack)
                 return;
-
         }
-
 
         protected void btnCadastrar_Click(object sender, EventArgs e)
         {
@@ -34,13 +32,11 @@ namespace LivroDeReceitas
             }
         }
 
-       
         protected void btnCancelar_Click(object sender, EventArgs e)
         {
 
             Response.Redirect("~/Login.aspx");
         }
-
 
         private void LimparCampos()
         {
@@ -49,7 +45,7 @@ namespace LivroDeReceitas
             txtData.Text = string.Empty;
             txtSenha.Text = string.Empty;
             rdoFeminino.Checked = false;
-           
+
         }
 
         private bool Validar()
@@ -71,47 +67,34 @@ namespace LivroDeReceitas
             return true;
         }
 
-
         private void Salvar()
         {
-
             var obj = new Usuario();
             obj.Nome = txtNome.Text;
             obj.Email = txtEmail.Text;
             obj.DataNascimento = Convert.ToDateTime(txtData.Text);
             obj.Sexo = rdoFeminino.Checked ? "F" : "M";
             obj.Senha = txtSenha.Text;
-           
-           
-            using (SqlConnection conn =
-                new SqlConnection(@"Initial Catalog=RECEITAS;
-                        Data Source=localhost;
-                        Integrated Security=SSPI;"))
+
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Db"].ConnectionString))
             {
                 string strSQL = @"INSERT INTO usuario (nome, dataNascimento, email, senha, sexo ) 
                                   VALUES (@nome, @dataNascimento, @email, @senha, @sexo)";
 
-              
                 using (SqlCommand cmd = new SqlCommand(strSQL))
                 {
                     cmd.Connection = conn;
-                   
                     cmd.Parameters.Add("@nome", SqlDbType.VarChar).Value = obj.Nome;
                     cmd.Parameters.Add("@dataNascimento", SqlDbType.DateTime).Value = obj.DataNascimento;
                     cmd.Parameters.Add("@email", SqlDbType.VarChar).Value = obj.Email;
                     cmd.Parameters.Add("@sexo", SqlDbType.VarChar).Value = obj.Sexo;
                     cmd.Parameters.Add("@senha", SqlDbType.VarChar).Value = obj.Senha;
 
-                   
                     conn.Open();
-                  
                     cmd.ExecuteNonQuery();
-                  
                     conn.Close();
                 }
             }
         }
     }
 }
-
-      

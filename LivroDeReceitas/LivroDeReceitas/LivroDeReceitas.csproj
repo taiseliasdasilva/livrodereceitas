@@ -141,6 +141,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="BancoDeDados.sql" />
     <Content Include="CadReceitas.aspx" />
     <Content Include="CadUsuario.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -253,6 +254,7 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="FormsAuthenticationUtil.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -263,6 +265,8 @@
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Models\CustomPrincipalSerializeModel.cs" />
+    <Compile Include="Models\ICustomPrincipal.cs" />
     <Compile Include="Models\Login.cs" />
     <Compile Include="Models\Receitas.cs" />
     <Compile Include="Models\Tipo_Receita.cs" />

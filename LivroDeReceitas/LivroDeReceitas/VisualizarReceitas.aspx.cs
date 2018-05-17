@@ -1,6 +1,7 @@
 ﻿using LivroDeReceitas.Models;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -31,6 +32,10 @@ namespace LivroDeReceitas
             }
         }
 
+        protected void btnCurtida_Click(object sender, EventArgs e)
+        {
+
+        }
 
         private void LimparCampos()
         {
@@ -41,61 +46,31 @@ namespace LivroDeReceitas
         {
             if (string.IsNullOrWhiteSpace(txtComentarios.Text))
                 return false;
-            
+
 
             return true;
         }
-    
+
         private void Salvar()
         {
             var obj = new Visualizar();
-
             obj.Comentarios = txtComentarios.Text;
 
-
-
-            using (SqlConnection conn =
-                new SqlConnection(@"Initial Catalog=RECEITAS;
-                        Data Source=localhost;
-                        Integrated Security=SSPI;"))
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Db"].ConnectionString))
             {
                 string strSQL = @"INSERT INTO visualizar(comentarios) 
                                   VALUES (@comentarios)";
 
-
                 using (SqlCommand cmd = new SqlCommand(strSQL))
                 {
                     cmd.Connection = conn;
-
-
-
                     cmd.Parameters.Add("@comentarios", SqlDbType.VarChar).Value = obj.Comentarios;
-                
-
-
 
                     conn.Open();
-
                     cmd.ExecuteNonQuery();
-
                     conn.Close();
-
                 }
-    
-        
             }
-        }
-
-        protected void btnCurtida_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
-
-
-
-
-  
-
-  

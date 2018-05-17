@@ -1,6 +1,7 @@
 ﻿using LivroDeReceitas.Models;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.IO;
@@ -18,7 +19,6 @@ namespace LivroDeReceitas
             CarregarTipos();
         }
 
-
         protected void btnCadastrar_Click(object sender, EventArgs e)
         {
             if (Validar())
@@ -26,7 +26,6 @@ namespace LivroDeReceitas
             LimparCampos();
             Response.Redirect("~/VisualizarReceitas.aspx");
         }
-
 
         protected void btnCancelar_Click(object sender, EventArgs e)
         {
@@ -37,7 +36,7 @@ namespace LivroDeReceitas
         {
             var lstTipos = new List<Tipo_Receita>();
 
-            using (SqlConnection conn = new SqlConnection(@"Initial Catalog=RECEITAS; Data Source=localhost; Integrated Security=SSPI;"))
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Db"].ConnectionString))
             {
                 string strSQL = @"SELECT * FROM tipo_receita";
 
@@ -57,8 +56,7 @@ namespace LivroDeReceitas
                         var tipoReceita = new Tipo_Receita()
                         {
                             Id = Convert.ToInt32(row["id"]),
-                            Nome = row["nome"].ToString(),
-
+                            Nome = row["nome"].ToString()
                         };
                         lstTipos.Add(tipoReceita);
                     }
@@ -104,10 +102,13 @@ namespace LivroDeReceitas
             obj.Url = txtUrl.Text;
             obj.Foto = fupArquivo.FileName;
 
-            var fileName = Path.Combine(Server.MapPath("~/Uploads"), fupArquivo.FileName);
-            fupArquivo.SaveAs(fileName);
+            if (fupArquivo.HasFile)
+            {
+                var fileName = Path.Combine(Server.MapPath("~/Uploads"), fupArquivo.FileName);
+                fupArquivo.SaveAs(fileName);
+            }
 
-            using (SqlConnection conn = new SqlConnection(@"Initial Catalog=RECEITAS; Data Source=localhost; Integrated Security=SSPI;"))
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Db"].ConnectionString))
             {
                 string strSQL = @"INSERT INTO receitas (nome, id_tipo, ingredientes, modo_preparo, url_video, foto) 
                                   VALUES (@nome, @id_tipo, @ingredientes, @modo_preparo, @url_video, @foto)";

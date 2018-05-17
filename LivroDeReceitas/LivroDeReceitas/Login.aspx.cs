@@ -1,12 +1,9 @@
 ﻿using LivroDeReceitas.Models;
 using System;
-using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
+using System.Web.Script.Serialization;
 
 namespace LivroDeReceitas
 {
@@ -18,17 +15,34 @@ namespace LivroDeReceitas
                 return;
         }
 
+        protected void btnCadastrar_Click1(object sender, EventArgs e)
+        {
+            Response.Redirect("~/CadUsuario.aspx");
+        }
 
         protected void btnEntrar_Click1(object sender, EventArgs e)
         {
             if (Validar())
             {
+                var obj = new Usuario();
+                obj.Email = txtEmail.Text;
+                obj.Senha = txtSenha.Text;
 
-                Salvar();
+                var usuarioLogado = Logar(obj);
 
-                LimparCampos();
+                //se não encontrar nenhum usuário com as credenciais informadas, 
+                //redireciona novamente para fazer login
+                if (usuarioLogado == null)
+                {
+                    Response.Redirect("~/Login.aspx");
+                }
 
-                Response.Redirect("~/CadUsuario.aspx");
+                //armazena o usuário autenticado no cache do navegador
+                var userData = new JavaScriptSerializer().Serialize(usuarioLogado);
+                FormsAuthenticationUtil.SetCustomAuthCookie(usuarioLogado.Email, userData, false);
+
+                //redireciona para a página inicial se foi logado com sucesso
+                Response.Redirect("~/Default.aspx");
             }
         }
 
@@ -36,7 +50,6 @@ namespace LivroDeReceitas
         {
             txtEmail.Text = string.Empty;
             txtSenha.Text = string.Empty;
-
         }
 
         private bool Validar()
@@ -50,20 +63,11 @@ namespace LivroDeReceitas
             return true;
         }
 
-        private void Salvar()
+        private Usuario Logar(Usuario obj)
         {
-            var obj = new Usuario();
-            obj.Email = string.Empty;
-            obj.Senha = string.Empty;
-
-
-            using (SqlConnection conn =
-                new SqlConnection(@"Initial Catalog=RECEITAS;
-                        Data Source=localhost;
-                        Integrated Security=SSPI;"))
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Db"].ConnectionString))
             {
                 string strSQL = "select * from usuario where email = @email and senha = @senha;";
-
 
                 using (SqlCommand cmd = new SqlCommand(strSQL))
                 {
@@ -78,9 +82,9 @@ namespace LivroDeReceitas
                     conn.Close();
 
                     if (!(dt != null && dt.Rows.Count > 0))
-                        return;
+                        return null;
 
-                    //converter os dados
+                    //convertendo os dados do usuário baseado no retorno do select
                     var row = dt.Rows[0];
                     var usuario = new Usuario()
                     {
@@ -91,16 +95,10 @@ namespace LivroDeReceitas
                         Senha = row["senha"].ToString(),
                         Sexo = row["sexo"].ToString()
                     };
+
+                    return usuario;
                 }
             }
         }
-
-        protected void btnCadastrar_Click1(object sender, EventArgs e)
-        {
-
-            Response.Redirect("~/CadUsuario.aspx");
-        }
-
-     
-        }
     }
+}

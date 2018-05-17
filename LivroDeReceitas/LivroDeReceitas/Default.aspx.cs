@@ -1,6 +1,7 @@
 ﻿using LivroDeReceitas.Models;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Web.UI;
@@ -14,28 +15,25 @@ namespace LivroDeReceitas
             if (IsPostBack)
                 return;
 
-            var lst = new List<Receitas>();
-
-        
-            using (SqlConnection conn = new SqlConnection(@"Initial Catalog=RECEITAS; Data Source=localhost; Integrated Security=SSPI;"))
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Db"].ConnectionString))
             {
-                
+                var lst = new List<Receitas>();
                 string strSQL = @"SELECT * FROM receitas";
 
                 using (SqlCommand cmd = new SqlCommand(strSQL))
                 {
-                   
+
                     conn.Open();
                     cmd.Connection = conn;
                     cmd.CommandText = strSQL;
-      
+
                     var dataReader = cmd.ExecuteReader();
                     var dt = new DataTable();
                     dt.Load(dataReader);
-                    
+
                     conn.Close();
 
-                    
+
                     foreach (DataRow row in dt.Rows)
                     {
                         var receita = new Receitas()
@@ -51,10 +49,10 @@ namespace LivroDeReceitas
                         lst.Add(receita);
                     }
                 }
-            }
 
-            gridView.DataSource = lst;
-            gridView.DataBind();
+                gridView.DataSource = lst;
+                gridView.DataBind();
+            }
         }
     }
 }
