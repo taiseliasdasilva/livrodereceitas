@@ -66,3 +66,8 @@ create table comentarios (
 	texto varchar(2000) not null,
 );
 go
+
+select * from usuario;
+select * from receitas;
+select * from tipo_receita;
+select * from comentarios;
