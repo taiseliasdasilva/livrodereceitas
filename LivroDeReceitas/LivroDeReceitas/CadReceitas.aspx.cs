@@ -55,6 +55,7 @@ namespace LivroDeReceitas
                     {
                         var tipoReceita = new Tipo_Receita()
                         {
+
                             Id = Convert.ToInt32(row["id"]),
                             Nome = row["nome"].ToString()
                         };

@@ -150,6 +150,7 @@ namespace LivroDeReceitas
                     conn.Open();
                     cmd.ExecuteNonQuery();
                     conn.Close();
+                    
                 }
             }
 
