@@ -6,6 +6,15 @@
             <div class="col-md-12">
                 <h3>Cadastro de Usuário</h3>
                 <hr />
+                <asp:Panel ID="pnlMsg" runat="server" Visible="false">
+                    <div class="form-group">
+                        <div class="col-md-12 text-center">
+                            <div class="alert alert-danger" role="alert" style="margin-bottom: 0px !important;">
+                                <asp:Label ID="lblMsg" runat="server" />
+                            </div>
+                        </div>
+                    </div>
+                </asp:Panel>
                 <div class="form-group">
                     <div class="col-md-8">
                         <asp:Label ID="lblNome" runat="server"

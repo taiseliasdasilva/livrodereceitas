@@ -27,10 +27,11 @@ namespace LivroDeReceitas
                 var usuarioLogado = Logar(obj);
 
                 //se não encontrar nenhum usuário com as credenciais informadas, 
-                //redireciona novamente para fazer login
+                //mostra mensagem de login ou senha inválido
                 if (usuarioLogado == null)
                 {
-                    Response.Redirect("~/Login.aspx");
+                    pnlMsg.Visible = true;
+                    return;
                 }
 
                 //armazena o usuário autenticado no cache do navegador

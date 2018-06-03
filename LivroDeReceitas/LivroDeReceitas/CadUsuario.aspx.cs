@@ -23,18 +23,19 @@ namespace LivroDeReceitas
         {
             if (Validar())
             {
-
                 Salvar();
-
                 LimparCampos();
-
                 Response.Redirect("~/Login.aspx");
+            }
+            else
+            {
+                lblMsg.Text = "É necessário preencher os campos obrigatórios!";
+                pnlMsg.Visible = true;
             }
         }
 
         protected void btnCancelar_Click(object sender, EventArgs e)
         {
-
             Response.Redirect("~/Login.aspx");
         }
 
@@ -45,15 +46,12 @@ namespace LivroDeReceitas
             txtData.Text = string.Empty;
             txtSenha.Text = string.Empty;
             rdoFeminino.Checked = false;
-
         }
 
         private bool Validar()
         {
-
             if (string.IsNullOrWhiteSpace(txtNome.Text))
                 return false;
-
 
             if (string.IsNullOrWhiteSpace(txtData.Text))
                 return false;
@@ -78,7 +76,7 @@ namespace LivroDeReceitas
 
             using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Db"].ConnectionString))
             {
-                string strSQL = @"INSERT INTO usuario (nome, dataNascimento, email, senha, sexo ) 
+                string strSQL = @"INSERT INTO usuario (nome, dataNascimento, email, senha, sexo) 
                                   VALUES (@nome, @dataNascimento, @email, @senha, @sexo)";
 
                 using (SqlCommand cmd = new SqlCommand(strSQL))

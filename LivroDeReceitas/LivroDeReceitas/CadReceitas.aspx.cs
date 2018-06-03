@@ -22,9 +22,16 @@ namespace LivroDeReceitas
         protected void btnCadastrar_Click(object sender, EventArgs e)
         {
             if (Validar())
+            {
                 Salvar();
-            LimparCampos();
-            Response.Redirect("~/Default.aspx");
+                LimparCampos();
+                Response.Redirect("~/Default.aspx");
+            }
+            else
+            {
+                lblMsg.Text = "É necessário preencher os campos obrigatórios!";
+                pnlMsg.Visible = true;
+            }
         }
 
         protected void btnCancelar_Click(object sender, EventArgs e)
@@ -35,6 +42,7 @@ namespace LivroDeReceitas
         private void CarregarTipos()
         {
             var lstTipos = new List<Tipo_Receita>();
+            lstTipos.Add(new Tipo_Receita() { Nome = "-- [SELECIONE] --" });
 
             using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Db"].ConnectionString))
             {
@@ -81,7 +89,7 @@ namespace LivroDeReceitas
         {
             if (string.IsNullOrWhiteSpace(txtNome.Text))
                 return false;
-            if (string.IsNullOrWhiteSpace(ddlTipo.SelectedValue))
+            if (!(Convert.ToInt32(ddlTipo.SelectedValue) > 0))
                 return false;
             if (string.IsNullOrWhiteSpace(txtIngredientes.Text))
                 return false;

@@ -15,7 +15,7 @@
                             <div class="form-group">
                                 <div class="col-md-12 text-center">
                                     <div class="alert alert-danger" role="alert" style="margin-bottom: 0px !important;">
-                                        <strong>Alerta!</strong> E-mail e/ou senha inválidos!
+                                        E-mail ou senha inválido!
                                     </div>
                                 </div>
                             </div>
