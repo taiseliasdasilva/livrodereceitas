@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="VisualizarReceitas.aspx.cs" Inherits="LivroDeReceitas.VisualizarReceitas" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="VisualizarReceitas.aspx.cs" Inherits="LivroDeReceitas.VisualizarReceitas" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <style type="text/css">
@@ -43,14 +43,6 @@
                 <iframe id="playerVideo" runat="server" width="560" height="320"></iframe>
             </div>
         </div>
-        <%--
-        <div class="form-group">
-            <div class="col-md-8 text-right">
-                <button id="curtida" type="button" data-toggle="modal" data-target="#janela-resposta">
-                <img src="Images/thumb-up.png" width="280" height="280"></button>
-            </div>
-        </div>
-        --%>
         <hr />
         <div class="form-group">
             <div class="col-md-12">
@@ -63,6 +55,7 @@
                 <asp:Button ID="btnEnviarMsg" runat="server" Text="Enviar" CssClass="btn btn-primary" OnClick="btnEnviarMsg_Click" />
             </div>
         </div>
+        <hr />
         <div class="form-group">
             <div class="col-md-12">
                 <asp:DataList ID="gridView" CssClass="table text-center" runat="server" RepeatColumns="1" RepeatLayout="Table">

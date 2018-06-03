@@ -159,6 +159,7 @@
     <Content Include="Images\22786_original.jpg" />
     <Content Include="Images\27277_original.jpg" />
     <Content Include="Images\320144.jpg" />
+    <Content Include="Images\avatar_100px.png" />
     <Content Include="Images\avatar_2x.png" />
     <Content Include="Images\download.jpg" />
     <Content Include="Images\espaguete.jpg" />
@@ -209,7 +210,6 @@
     <Content Include="Scripts\umd\popper.min.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Default.aspx" />
-    <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Site.Master" />
     <Content Include="VisualizarReceitas.aspx" />

@@ -15,11 +15,6 @@ namespace LivroDeReceitas
                 return;
         }
 
-        protected void btnCadastrar_Click1(object sender, EventArgs e)
-        {
-            Response.Redirect("~/CadUsuario.aspx");
-        }
-
         protected void btnEntrar_Click1(object sender, EventArgs e)
         {
             if (Validar())

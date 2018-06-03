@@ -1,10 +1,10 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="CadReceitas.aspx.cs" Inherits="LivroDeReceitas.CadReceitas" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="CadReceitas.aspx.cs" Inherits="LivroDeReceitas.CadReceitas" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <form runat="server" class="form-horizontal">
         <div class="row">
             <div class="col-md-12">
-                <h1>Cadastro de Receitas</h1>
+                <h3>Cadastro de Receitas</h3>
                 <hr />
                 <div class="form-group">
                     <div class="col-md-12">
@@ -15,15 +15,13 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <div class="col-md-12">
+                    <div class="col-md-6">
                         <asp:Label ID="lblUrlVideo" runat="server"
                             CssClass="control-label">URL do vídeo no YouTube:</asp:Label>
                         <asp:TextBox ID="txtUrl" runat="server"
                             CssClass="form-control"></asp:TextBox>
                     </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-md-12">
+                    <div class="col-md-6">
                         <asp:Label ID="lblTipo" runat="server" CssClass="control-label">Tipo:</asp:Label>
                         <asp:DropDownList ID="ddlTipo" runat="server"
                             CssClass="form-control">
@@ -52,6 +50,7 @@
                 </div>
                 <div class="form-group">
                     <div class="col-md-12 text-right">
+                        <hr />
                         <asp:Button ID="btnCadastrar" runat="server"
                             Text="Cadastrar" CssClass="btn btn-primary" OnClick="btnCadastrar_Click" />
                         <asp:Button ID="btnCancelar" runat="server"

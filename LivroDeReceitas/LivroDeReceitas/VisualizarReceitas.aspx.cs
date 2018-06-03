@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Security.Principal;
+using System.Web;
 
 namespace LivroDeReceitas
 {
@@ -116,11 +118,6 @@ namespace LivroDeReceitas
             }
         }
 
-        protected void btnCurtida_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private bool Validar()
         {
             if (string.IsNullOrWhiteSpace(txtComentario.Text))
@@ -130,6 +127,9 @@ namespace LivroDeReceitas
 
         private void EnviarMsg()
         {
+            if (HttpContext.Current.User.GetType() == typeof(WindowsPrincipal))
+                return;
+
             var obj = new Comentario();
             obj.Receita = new Receitas() { Id = Convert.ToInt32(Request.QueryString["id"]) };
             obj.Usuario = new Usuario() { Id = ((Usuario)User).Id };
@@ -150,7 +150,7 @@ namespace LivroDeReceitas
                     conn.Open();
                     cmd.ExecuteNonQuery();
                     conn.Close();
-                    
+
                 }
             }
 

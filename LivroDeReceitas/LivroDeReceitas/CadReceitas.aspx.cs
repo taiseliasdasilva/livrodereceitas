@@ -24,12 +24,12 @@ namespace LivroDeReceitas
             if (Validar())
                 Salvar();
             LimparCampos();
-            Response.Redirect("~/VisualizarReceitas.aspx");
+            Response.Redirect("~/Default.aspx");
         }
 
         protected void btnCancelar_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/VisualizarReceitas.aspx");
+            Response.Redirect("~/Default.aspx");
         }
 
         private void CarregarTipos()
@@ -55,7 +55,6 @@ namespace LivroDeReceitas
                     {
                         var tipoReceita = new Tipo_Receita()
                         {
-
                             Id = Convert.ToInt32(row["id"]),
                             Nome = row["nome"].ToString()
                         };

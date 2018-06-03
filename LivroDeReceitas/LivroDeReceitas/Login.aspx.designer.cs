@@ -13,6 +13,15 @@ namespace LivroDeReceitas {
     public partial class Login {
         
         /// <summary>
+        /// pnlMsg control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlMsg;
+        
+        /// <summary>
         /// lblEmail control.
         /// </summary>
         /// <remarks>
@@ -56,14 +65,5 @@ namespace LivroDeReceitas {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnEntrar;
-        
-        /// <summary>
-        /// btnCadastrar control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCadastrar;
     }
 }
