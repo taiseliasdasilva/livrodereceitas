@@ -16,6 +16,10 @@ namespace LivroDeReceitas
             if (IsPostBack)
                 return;
 
+            txtComentario.Visible = HttpContext.Current.User != null && HttpContext.Current.User.GetType() == typeof(Usuario);
+            txtComentario.Visible = HttpContext.Current.User != null && HttpContext.Current.User.GetType() == typeof(Usuario);
+            btnEnviarMsg.Visible = HttpContext.Current.User != null && HttpContext.Current.User.GetType() == typeof(Usuario);
+
             if (!string.IsNullOrWhiteSpace(Request.QueryString["id"]))
             {
                 var id = Convert.ToInt32(Request.QueryString["id"]);
