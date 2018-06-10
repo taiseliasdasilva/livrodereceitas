@@ -155,6 +155,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\sticky-footer-navbar.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Images\22786_original.jpg" />
     <Content Include="Images\27277_original.jpg" />

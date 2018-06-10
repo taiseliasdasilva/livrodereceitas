@@ -9,6 +9,7 @@
     <title>RECEITAS DIVERTIDAS</title>
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
     <link href="Content/jquery.cleditor.css" rel="stylesheet" />
+    <link href="Content/sticky-footer-navbar.css" rel="stylesheet" />
     <script src="Scripts/jquery-1.10.2.min.js"></script>
     <script src="Scripts/bootstrap.min.js"></script>
     <script src="Scripts/jquery.cleditor.min.js"></script>
@@ -31,6 +32,18 @@
         ul.nav > li > a {
             color: #ffffff !important;
         }
+
+        .btn-roxo {
+            background-color: #69327F;
+            border-color: #69327F;
+            color: #ffffff;
+        }
+
+            .btn-roxo:hover {
+                background-color: #69327F;
+                border-color: #69327F;
+                color: #ffffff;
+            }
     </style>
 </head>
 <body>
@@ -69,6 +82,11 @@
         <asp:ContentPlaceHolder ID="MainContent" runat="server">
         </asp:ContentPlaceHolder>
     </div>
+    <footer class="footer">
+        <div class="container">
+            <p class="text-muted">RECEITAS DIVERTIDAS &copy; <%= DateTime.Now.Year %></p>
+        </div>
+    </footer>
     <script type="text/javascript">
         $(document).ready(function () {
             $("#MainContent_txtIngredientes").cleditor({ height: 250 });

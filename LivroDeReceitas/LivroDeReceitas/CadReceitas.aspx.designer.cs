@@ -49,6 +49,15 @@ namespace LivroDeReceitas {
         protected global::System.Web.UI.WebControls.TextBox txtNome;
         
         /// <summary>
+        /// rfvNome control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvNome;
+        
+        /// <summary>
         /// lblUrlVideo control.
         /// </summary>
         /// <remarks>
@@ -65,6 +74,15 @@ namespace LivroDeReceitas {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtUrl;
+        
+        /// <summary>
+        /// rfvUrlVideo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvUrlVideo;
         
         /// <summary>
         /// lblTipo control.
@@ -85,6 +103,15 @@ namespace LivroDeReceitas {
         protected global::System.Web.UI.WebControls.DropDownList ddlTipo;
         
         /// <summary>
+        /// rfvTipo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvTipo;
+        
+        /// <summary>
         /// lblIngredientes control.
         /// </summary>
         /// <remarks>
@@ -103,6 +130,15 @@ namespace LivroDeReceitas {
         protected global::System.Web.UI.WebControls.TextBox txtIngredientes;
         
         /// <summary>
+        /// rfvIngredientes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvIngredientes;
+        
+        /// <summary>
         /// lblModoDePreparo control.
         /// </summary>
         /// <remarks>
@@ -119,6 +155,15 @@ namespace LivroDeReceitas {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtModo;
+        
+        /// <summary>
+        /// rfvModo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvModo;
         
         /// <summary>
         /// fupArquivo control.

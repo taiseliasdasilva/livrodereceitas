@@ -52,7 +52,7 @@
         </div>
         <div class="form-group">
             <div class="col-md-12 text-right">
-                <asp:Button ID="btnEnviarMsg" runat="server" Text="Enviar" CssClass="btn btn-primary" OnClick="btnEnviarMsg_Click" />
+                <asp:Button ID="btnEnviarMsg" runat="server" Text="Enviar" CssClass="btn btn-roxo" OnClick="btnEnviarMsg_Click" />
             </div>
         </div>
         <hr />
