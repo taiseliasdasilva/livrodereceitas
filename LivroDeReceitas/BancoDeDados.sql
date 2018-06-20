@@ -71,3 +71,5 @@ select * from usuario;
 select * from receitas;
 select * from tipo_receita;
 select * from comentarios;
+
+use master
