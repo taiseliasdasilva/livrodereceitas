@@ -49,7 +49,8 @@ create table receitas (
 	ingredientes varchar(max) not null,
 	modo_preparo varchar(max) not null,
 	url_video varchar (1000) ,
-	foto varchar(1000)
+	foto varchar(1000),
+	id_usuario integer not null references usuario(id)
 );
 go
 
@@ -72,4 +73,4 @@ select * from receitas;
 select * from tipo_receita;
 select * from comentarios;
 
-use master
+
