@@ -105,6 +105,7 @@ namespace LivroDeReceitas
             var obj = new Receitas();
             obj.Nome = txtNome.Text;
             obj.Tipo = new Tipo_Receita() { Id = Convert.ToInt32(ddlTipo.SelectedValue) };
+            obj.Usuario = new Usuario() { Id = ((Usuario)User).Id };
             obj.Ingredientes = txtIngredientes.Text;
             obj.ModoDePreparo = txtModo.Text;
             obj.UrlVideo = txtUrl.Text;
@@ -112,14 +113,17 @@ namespace LivroDeReceitas
 
             if (fupArquivo.HasFile)
             {
+                if (!Directory.Exists(Server.MapPath("~/Uploads")))
+                    Directory.CreateDirectory(Server.MapPath("~/Uploads"));
+
                 var fileName = Path.Combine(Server.MapPath("~/Uploads"), fupArquivo.FileName);
                 fupArquivo.SaveAs(fileName);
             }
 
             using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Db"].ConnectionString))
             {
-                string strSQL = @"INSERT INTO receitas (nome, id_tipo, ingredientes, modo_preparo, url_video, foto) 
-                                  VALUES (@nome, @id_tipo, @ingredientes, @modo_preparo, @url_video, @foto)";
+                string strSQL = @"INSERT INTO receitas (nome, id_tipo, ingredientes, modo_preparo, url_video, foto, id_usuario) 
+                                  VALUES (@nome, @id_tipo, @ingredientes, @modo_preparo, @url_video, @foto, @id_usuario)";
 
                 using (SqlCommand cmd = new SqlCommand(strSQL))
                 {
@@ -130,6 +134,15 @@ namespace LivroDeReceitas
                     cmd.Parameters.Add("@modo_preparo", SqlDbType.VarChar).Value = obj.ModoDePreparo;
                     cmd.Parameters.Add("@url_video", SqlDbType.VarChar).Value = obj.UrlVideo;
                     cmd.Parameters.Add("@foto", SqlDbType.VarChar).Value = obj.Foto;
+                    cmd.Parameters.Add("@id_usuario", SqlDbType.Int).Value = obj.Usuario.Id;
+
+                    foreach (SqlParameter parameter in cmd.Parameters)
+                    {
+                        if (parameter.Value == null)
+                        {
+                            parameter.Value = DBNull.Value;
+                        }
+                    }
 
                     conn.Open();
                     cmd.ExecuteNonQuery();

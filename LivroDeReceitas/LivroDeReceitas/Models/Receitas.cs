@@ -15,6 +15,7 @@ namespace LivroDeReceitas.Models
         public string UrlVideo { get; set; }
         public string Foto { get; set; }
         public List<Comentario> Comentarios { get; set; }
+        public Usuario Usuario { get; set; }
 
         public string FotoUrl
         {

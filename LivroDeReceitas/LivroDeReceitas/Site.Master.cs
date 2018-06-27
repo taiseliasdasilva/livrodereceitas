@@ -14,9 +14,13 @@ namespace LivroDeReceitas
         {
             if (IsPostBack)
                 return;
+            //mostrar o botão sair somente se tiver um usuário logado no site
             lnkSair.Visible = HttpContext.Current.User != null && HttpContext.Current.User.GetType() == typeof(Usuario);
+            //mostrar o botão de cadastro de receita se tiver um usuário logado no site
             lnkCadReceita.Visible = HttpContext.Current.User != null && HttpContext.Current.User.GetType() == typeof(Usuario);
+            //mostrar o botão de cadastro de usuário se não tiver nenhum usuário logado no site
             lnkCadUsuario.Visible = HttpContext.Current.User.GetType() != typeof(Usuario);
+            //mostrar o botão de login se não tiver nenhum usuário logado no site
             lnkLogin.Visible = HttpContext.Current.User.GetType() != typeof(Usuario);
         }
 
